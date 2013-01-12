@@ -1,7 +1,10 @@
 package com.eventivities.android;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -278,6 +282,7 @@ public class VotarActivity extends SherlockActivity {
     	return (int) mRat.getRating();
 	}
 
+	@SuppressLint("NewApi")
 	public void accionCompartir(View v){
     	Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 
@@ -327,6 +332,9 @@ public class VotarActivity extends SherlockActivity {
         			"["+mTeatro+"] "+getString(R.string.votar_compartir_viendo)+ " \"" +
         			   mObra+"\"\n  "+
         			   tRatTxt+" ("+tRat+") : " +txt;
+        	
+        	
+        	 
         	
         	//continuamos la accion
         	sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, txt);
@@ -440,7 +448,7 @@ public class VotarActivity extends SherlockActivity {
 					mensajeYaVotaste();
 				}
 				if (result && !errorBD) {
-					Toast.makeText(getBaseContext(),getString(R.string.votar_ExitoAlVotar),Toast.LENGTH_SHORT).show();
+					Toast.makeText(getBaseContext(),getString(R.string.votar_ExitoAlVotar),Toast.LENGTH_LONG).show();
 					TextView mTxt=(TextView) findViewById(R.id.votar_cuantasLetrasQuedan);
 					mTxt.setText(getString(R.string.votar_VotoOk));
 				}

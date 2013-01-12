@@ -94,4 +94,7 @@
     <string name="textoBotonContinuar">Aceptar</string>
     <string name="textoBotonCancelar">Cancelar</string>
     <string name="textAliasDuplicado">Alias duplicado. Ese alias ya está registrado, por favor, elija otro diferente.</string>
+    <string name="barraNotificacion_titulo">Eventivities</string>
+    <string name="barraNotificacion_texto">El camino a lo que Quieres</string>
+    
 </resources>
